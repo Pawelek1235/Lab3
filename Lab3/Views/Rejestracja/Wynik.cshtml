@@ -1,0 +1,23 @@
+﻿@model Lab3.Models.RejestracjaModel
+
+@{
+    ViewData["Title"] = "Podsumowanie rejestracji";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Rejestracja zakończona pomyślnie!</p>
+
+<h3>Wprowadzone dane:</h3>
+
+<ul>
+    <li><strong>Imię:</strong> @Model.Imie</li>
+    <li><strong>Nazwisko:</strong> @Model.Nazwisko</li>
+    <li><strong>Email:</strong> @Model.Email</li>
+    <li><strong>Hasło:</strong> @Model.Haslo</li>
+    <li><strong>Numer telefonu:</strong> @Model.NrTelefonu</li>
+    <li><strong>Wiek:</strong> @Model.Wiek</li>
+    <li><strong>Miasto:</strong> @Enum.GetName(typeof(Lab3.Models.RejestracjaModel.Miasto), Model.miasto)</li>
+</ul>
+
+<a href="@Url.Action("Formularz", "Rejestracja")" class="btn btn-primary">Powróć do formularza</a>

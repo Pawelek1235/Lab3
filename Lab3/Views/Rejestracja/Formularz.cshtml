@@ -1,0 +1,67 @@
+﻿@model Lab3.Models.RejestracjaModel
+
+@{
+    ViewData["Title"] = "Formularz rejestracji";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Formularz" method="post">
+    <div class="form-group">
+        <label for="Imie">Imię</label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Nazwisko">Nazwisko</label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Adres e-mail</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Haslo">Hasło</label>
+        <input asp-for="Haslo" type="password" class="form-control" />
+        <span asp-validation-for="Haslo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="PotwierdzenieHasla">Potwierdzenie hasła</label>
+        <input asp-for="PotwierdzenieHasla" type="password" class="form-control" />
+        <span asp-validation-for="PotwierdzenieHasla" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="NrTelefonu">Numer telefonu</label>
+        <input asp-for="NrTelefonu" type="tel" class="form-control" />
+        <span asp-validation-for="NrTelefonu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Wiek">Wiek</label>
+        <input asp-for="Wiek" type="number" class="form-control" />
+        <span asp-validation-for="Wiek" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Miasto">miasto</label>
+        <select asp-for="miasto" class="form-control">
+            <option value="">-- Wybierz miasto --</option>
+            @foreach (var miasto in Enum.GetValues(typeof(Lab3.Models.RejestracjaModel.Miasto)))
+            {
+                <option value="@miasto">@miasto</option>
+            }
+        </select>
+        <span asp-validation-for="miasto" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zarejestruj</button>
+    <button type="reset" class="btn btn-secondary">Wyczyść</button>
+</form>
+
